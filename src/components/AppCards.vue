@@ -65,19 +65,31 @@ export default {
 
     </div>
     <h1>serie TV</h1>
-    <ul v-for="serie in store.seriesList">
-        <li> <strong>{{ serie.original_name }} </strong></li>
-        <li> {{ serie.name }} </li>
-        <li v-if="hasFlag(serie.original_language)"><img :src="getFlag(serie.original_language)" alt="bandiera"></li>
-        <li v-else="!hasFlag(serie.original_language)"> {{ serie.original_language }}</li>
-        <li><i v-for="i in 5" :class="getStars(serie.vote_average, i)" class="fa-star"></i> </li>
-        <li><img :src="getCopertina(serie.poster_path)" alt="copertina"></li>
+    <div class="container-tv">
 
+        <div v-for="serie in store.seriesList">
+            <div class="tv-card">
 
+                <img :src="getCopertina(serie.poster_path)" alt="copertina" class="background-tv">
+                <div class="content-tv">
+                    <div> <span><strong>titolo: </strong></span><span>{{ serie.original_name }}</span> </div>
+                    <div> <span><strong>titolo originale: </strong></span><span>{{ serie.name }}</span> </div>
+                    <div> <span><strong>overview: </strong></span><span>{{ serie.overview }}</span> </div>
+                    <div> <span><strong>voto: </strong></span> <span><i v-for="i in 5"
+                                :class="getStars(serie.vote_average, i)" class="fa-star"></i></span></div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span><strong>language:</strong></span>
+                        <div v-if="hasFlag(serie.original_language)"><img class="flag"
+                                :src="getFlag(serie.original_language)" alt="bandiera">
+                        </div>
+                        <div v-else> {{ serie.original_language }}</div>
+                    </div>
 
+                </div>
+            </div>
 
-
-    </ul>
+        </div>
+    </div>
 
 
 </template>
@@ -129,6 +141,39 @@ h1 {
 }
 
 .container-film {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.content-tv {
+    position: relative;
+    padding: 20px;
+    display: none;
+    background-color: rgba(85, 84, 84, 0.59);
+    height: 100%;
+}
+
+.background-tv {
+    position: absolute;
+    height: 515px;
+    width: 342px;
+}
+
+.tv-card:hover .content-tv {
+    display: block;
+    color: white;
+
+}
+
+.tv-card {
+    width: 342px;
+    height: 513px;
+    margin: 10px;
+    font-size: 13px
+}
+
+.container-tv {
     display: flex;
     width: 100%;
     flex-wrap: wrap;
