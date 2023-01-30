@@ -25,6 +25,31 @@ export default {
 
 </script>
 <template>
-    <search-name @filter-action="changeurl"></search-name>
+    <section class="contenitore d-flex justify-content-between align-items-center">
+        <div class="logo">
+            <img src="https://boolfix-jdonzelli.netlify.app/img/logo.png" alt="logo">
+        </div>
+        <search-name @filter-action="changeurl"></search-name>
+    </section>
 
 </template>
+
+<style scoped lang="scss">
+img {
+    max-width: 200px;
+}
+
+.contenitore {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 60px;
+    z-index: 3;
+}
+
+section {
+    height: 100px;
+    background-color: black;
+}
+</style>

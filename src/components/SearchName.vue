@@ -14,7 +14,7 @@ export default {
 
 
             if (!this.searchString) {
-                console.log("change")
+
                 store.targetRicerca = "test";
 
             } else {
@@ -33,7 +33,7 @@ export default {
 
     <form @submit.prevent="$emit('filter-action', searchString)">
         <input type="text" v-model="this.searchString">
-        <button type="submit" @click="connectTotheStore">invia</button>
+        <button type="submit" @click="connectTotheStore">cerca</button>
 
     </form>
 
