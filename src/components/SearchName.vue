@@ -26,7 +26,7 @@ export default {
         }
 
     },
-    emits: ["filter-action", "connect-to-the-store"]
+    emits: ["filter-action"]
 }
 </script>
 <template>

@@ -13,7 +13,8 @@ export default {
     methods: {
         changeurl() {
 
-            axios.get(`${store.urlFisso}?${store.apiKey}&language=it-IT&page=1&query=${store.targetRicerca}`).then((res) => store.filmList = res.data.results)
+            axios.get(`${store.urlFisso}/movie?${store.apiKey}&language=it-IT&page=1&query=${store.targetRicerca}`).then((res) => store.filmList = res.data.results)
+            axios.get(`${store.urlFisso}/tv?${store.apiKey}&language=it-IT&page=1&query=${store.targetRicerca}`).then((res) => store.seriesList = res.data.results)
 
         },
 
